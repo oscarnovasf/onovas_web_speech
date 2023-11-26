@@ -1,0 +1,158 @@
+<?php
+
+/**
+ * @file
+ * onovas_web_speech.module.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Render\Markup;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+use Drupal\onovas_web_speech\lib\general\MarkdownParser;
+
+/**
+ * Implements hook_help().
+ */
+function onovas_web_speech_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+
+    case 'help.page.onovas_web_speech':
+      /* Añado el contenido del archivo README.md a la ayuda del módulo */
+      $parser = new MarkdownParser();
+
+      $module_path = \Drupal::service('extension.path.resolver')
+        ->getPath('module', "onovas_web_speech");
+
+      $readme_ruta = $module_path . "/README.md";
+      $contenido = '';
+      if (file_exists($readme_ruta)) {
+        $contenido = file_get_contents($readme_ruta);
+        $contenido = Markup::create($parser->text($contenido));
+
+        if ($contenido) {
+          $template_path = $module_path . "/templates/custom/help.html.twig";
+          $template = file_get_contents($template_path);
+          $build = [
+            'description' => [
+              '#type' => 'inline_template',
+              '#template' => $template,
+              '#context' => [
+                'readme' => $contenido,
+              ],
+            ],
+          ];
+          return $build;
+        }
+      }
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_modules_installed().
+ */
+function onovas_web_speech_modules_installed($modules) {
+  if (in_array('onovas_web_speech', $modules)) {
+    // Be friendly to your users: what to do after install?
+    $url = Url::fromRoute('onovas_web_speech.settings');
+    if (PHP_SAPI != 'cli') {
+      \Drupal::messenger()->addMessage(t('You can now <a href="@url_settings">configure the onovas: Web Speech module</a> for your site.',
+        ['@url_settings' => $url->toString()]), 'status');
+    }
+  }
+}
+
+/**
+ * Implements hook_toolbar_alter().
+ */
+function onovas_web_speech_toolbar_alter(&$items) {
+  /* Añado iconos a la toolbar de administración */
+  $items['administration']['#attached']['library'][] = 'onovas_web_speech/toolbar';
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function onovas_web_speech_page_attachments(array &$attachments) {
+  /* Añadir el CSS y JS a toda la web */
+  $attachments['#attached']['library'][] = 'onovas_web_speech/global_libraries';
+}
+
+/**
+ * Implements hook_theme().
+ */
+function onovas_web_speech_theme() {
+  return [
+    'onovas_web_speech' => [
+      'variables' => [],
+    ],
+    'onovas_web_speech_block' => [
+      'variables' => [],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function onovas_web_speech_entity_extra_field_info() {
+  $extra = [];
+  $config = \Drupal::config('onovas_web_speech.settings');
+  $content_types = $config->get('content_types');
+
+  foreach ($content_types as $content_type) {
+    if ($content_type) {
+      $extra['node'][$content_type]['display']['node_onovas_web_speech'] = [
+        'label'       => t('Web Speech'),
+        'description' => t('Show web speech'),
+        'weight'      => 5,
+        'visible'     => FALSE,
+      ];
+    }
+  }
+
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function onovas_web_speech_entity_view(array &$build,
+                                       EntityInterface $entity,
+                                       EntityViewDisplayInterface $display,
+                                       $view_mode) {
+  // Prevent error on preview of an unpublished node.
+  if ($entity->id() === NULL) {
+    return;
+  }
+
+  if ($display->getComponent('node_onovas_web_speech')) {
+    $config = \Drupal::config('onovas_web_speech.settings');
+    $content_types = $config->get('content_types');
+
+    /* TODO Poner container como configurable */
+    $isAllowed = in_array($entity->bundle(), $content_types);
+    if ($isAllowed) {
+      $build['node_onovas_web_speech'] = [
+        '#theme'                  => 'onovas_web_speech',
+        '#attached'               => [
+          'library' => [
+            'onovas_web_speech/speech',
+          ],
+          'drupalSettings' => [
+            'onovas_web_speech' => [
+              'voice'     => $config->get('voice'),
+              'pitch'     => $config->get('pitch'),
+              'rate'      => $config->get('rate'),
+              'container' => $config->get('container'),
+            ],
+          ],
+        ],
+      ];
+    }
+  }
+}

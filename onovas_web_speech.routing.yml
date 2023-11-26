@@ -1,0 +1,44 @@
+################################################################################
+# MENÚ GLOBAL PARA LOS MÓDULOS CUSTOM                                          #
+################################################################################
+
+# Menú de configuración para todas las herramientas.
+custom_module.global.admin:
+  path: '/admin/custom_modules'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Custom Modules'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    no_cache: 'TRUE'
+
+################################################################################
+# CONFIGURACIÓN DEL MÓDULO                                                     #
+################################################################################
+
+# Ruta para ver todas las herramientas de este módulo.
+custom_module.onovas_web_speech.admin:
+  path: '/admin/custom_modules/onovas_web_speech'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Web Speech'
+  options:
+    _admin_route: TRUE
+  requirements:
+    _permission: 'config onovas_web_speech'
+
+################################################################################
+# FORMULARIOS                                                                  #
+################################################################################
+
+# Ruta para el formulario de configuración.
+onovas_web_speech.settings:
+  path: '/admin/custom_modules/onovas_web_speech/settings'
+  defaults:
+    _form: '\Drupal\onovas_web_speech\Form\config\SettingsForm'
+    _title: 'Settings'
+  requirements:
+    _permission: 'config onovas_web_speech'
+  options:
+    no_cache: 'TRUE'

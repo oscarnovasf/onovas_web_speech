@@ -1,0 +1,28 @@
+# Datos del módulo
+name: 'onovas: Web Speech'
+description: 'onovas: Web Speech - Functionalities'
+# project: 'onovas_web_speech'
+
+# Datos de la versión
+package: custom
+type: module
+version: '1.0.0'
+
+# Tema
+base theme: false
+
+# Configuración
+configure: onovas_web_speech.settings
+
+# Dependencias
+dependencies:
+  - node
+
+# Requisitos
+core_version_requirement: ^10
+requirements:
+  _permission: 'config onovas_web_speech'
+
+# Traducciones
+'interface translation project': onovas_web_speech
+'interface translation server pattern': 'modules/custom/onovas_web_speech/config/translations/onovas_web_speech.%language.po'

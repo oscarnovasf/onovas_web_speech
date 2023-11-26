@@ -1,0 +1,49 @@
+################################################################################
+# ESTILOS Y LIBRERÍAS GLOBALES                                                 #
+################################################################################
+
+global_libraries:
+  version: VERSION
+  css:
+    theme:
+      css/global_styles.css: {}
+  js:
+    js/global_scripts.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+toolbar:
+  version: VERSION
+  css:
+    theme:
+      css/toolbar.css: {}
+
+################################################################################
+# LIBRERÍAS                                                                    #
+################################################################################
+
+# Para la visualización de Readme, License y Changelog.
+markdown:
+  version: VERSION
+  css:
+    theme:
+      css/markdown.css: {}
+
+# Pruebas de voces en settings.
+speech_test:
+  version: VERSION
+  js:
+    js/speech_test.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+# Pruebas de voces en settings.
+speech:
+  version: VERSION
+  js:
+    js/speech.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

@@ -1,0 +1,31 @@
+################################################################################
+# MENÚ GLOBAL PARA LOS MÓDULOS CUSTOM                                          #
+################################################################################
+
+# Menú de configuración para todas las herramientas.
+custom_module.global.admin:
+  title: 'Custom Modules'
+  route_name: custom_module.global.admin
+  parent: system.admin
+  weight: 50
+
+################################################################################
+# CONFIGURACIÓN DEL MÓDULO                                                     #
+################################################################################
+
+# Menú para todos los elementos de este módulo.
+custom_module.onovas_web_speech.admin:
+  title: 'Web Speech'
+  route_name: custom_module.onovas_web_speech.admin
+  parent: custom_module.global.admin
+
+################################################################################
+# FORMULARIOS                                                                  #
+################################################################################
+
+# Formulario de configuración.
+onovas_web_speech.settings:
+  title: Settings
+  description: 'Global settings for onovas: Web Speech'
+  route_name: onovas_web_speech.settings
+  parent: custom_module.onovas_web_speech.admin

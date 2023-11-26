@@ -1,0 +1,165 @@
+# Spanish translation for onovas: Web Speech
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: onovas: Web Speech (1.0.0)\n"
+"Last-Translator: Developer <>\n"
+"Language-Team: OscarNovas.com <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: onovas_web_speech.module:63
+msgid "You can now <a href=\"@url_settings\">configure the onovas: Web Speech module</a> for your site."
+msgstr "Puedes <a href=\"@url_settings\">configurar el módulo onovas: Web Speech </a> para tu sitio."
+
+#: onovas_web_speech.module:110 onovas_web_speech.links.menu.yml:0 onovas_web_speech.routing.yml:0 src/Plugin/Block/SpeechBlock.php:12
+msgid "Web Speech"
+msgstr ""
+
+#: onovas_web_speech.module:111
+msgid "Show web speech"
+msgstr "Mostrar web speech"
+
+#: onovas_web_speech.info.yml:0
+msgid "onovas: Web Speech"
+msgstr ""
+
+#: onovas_web_speech.info.yml:0
+msgid "onovas: Web Speech - Functionalities"
+msgstr "onovas: Web Speech - Funcionalidades"
+
+#: onovas_web_speech.info.yml:0
+msgid "custom"
+msgstr ""
+
+#: onovas_web_speech.links.menu.yml:0 onovas_web_speech.routing.yml:0
+msgid "Custom Modules"
+msgstr ""
+
+#: onovas_web_speech.links.menu.yml:0 onovas_web_speech.routing.yml:0
+msgid "Settings"
+msgstr "Configuración"
+
+#: onovas_web_speech.links.menu.yml:0
+msgid "Global settings for onovas: Web Speech"
+msgstr "Configuración global para onovas: Web Speech"
+
+#: onovas_web_speech.permissions.yml:0
+msgid "Config onovas: Web Speech"
+msgstr "Configurar onovas: Web Speech"
+
+#: onovas_web_speech.permissions.yml:0
+msgid "Allow users to access onovas: Web Speech Config."
+msgstr ""
+"Permitir a los usuarios acceder a la configuración de onovas: Web "
+"Speech."
+
+#: config/schema/onovas_web_speech.schema.yml:0
+msgid "onovas: Web Speech Settings"
+msgstr "onovas: Web Speech Configuración"
+
+#: config/schema/onovas_web_speech.schema.yml:0
+msgid "Location"
+msgstr "Ubicación"
+
+#: js/speech.js:0;0
+msgid "Pause"
+msgstr "Pausa"
+
+#: js/speech.js:0;0 templates/onovas-web-speech-block.html.twig:2 templates/onovas-web-speech.html.twig:2
+msgid "Play"
+msgstr "Play"
+
+#: src/Form/config/SettingsForm.php:174
+msgid "General"
+msgstr "General"
+
+#: src/Form/config/SettingsForm.php:176
+msgid "<p><h2>General Settings</h2></p>"
+msgstr "<p><h2>Configuración General</h2></p>"
+
+#: src/Form/config/SettingsForm.php:180
+msgid "Voice"
+msgstr "Voz"
+
+#: src/Form/config/SettingsForm.php:184
+msgid "Voices"
+msgstr "Voces"
+
+#: src/Form/config/SettingsForm.php:188
+msgid "-- None --"
+msgstr "-- Ninguno --"
+
+#: src/Form/config/SettingsForm.php:198
+msgid "Rate"
+msgstr "Tasa"
+
+#: src/Form/config/SettingsForm.php:208
+msgid "Pitch"
+msgstr "Paso"
+
+#: src/Form/config/SettingsForm.php:218
+msgid "Container Settings"
+msgstr "Contenedor de Configuraciones"
+
+#: src/Form/config/SettingsForm.php:222
+msgid "Container"
+msgstr "Contenedor"
+
+#: src/Form/config/SettingsForm.php:223
+msgid "CSS class / Id of the container to read.<br>Examples: .container, #main, .main-content"
+msgstr "CSS clase / Id del contenedor para leer.<br>Ejemplos: .container, #main, .main-content"
+
+#: src/Form/config/SettingsForm.php:231
+msgid "Tests"
+msgstr "Pruebas"
+
+#: src/Form/config/SettingsForm.php:235
+msgid "Sample text"
+msgstr "Texto de prueba"
+
+#: src/Form/config/SettingsForm.php:236
+msgid "Hi, my name is Óscar"
+msgstr "Hola, mi nombre es Óscar"
+
+#: src/Form/config/SettingsForm.php:245
+msgid "Test"
+msgstr "Prueba"
+
+#: src/Form/config/SettingsForm.php:274
+msgid "Content Types"
+msgstr "Tipos de Contenido"
+
+#: src/Form/config/SettingsForm.php:276
+msgid "<p><h2>Content Type Settings</h2></p>"
+msgstr "<p><h2>Confiración de tipos de contenido</h2></p>"
+
+#: src/Form/config/SettingsForm.php:280
+msgid "Content types to apply web speech field to."
+msgstr "Tipos de contenido a los que aplicar el campo web speech."
+
+#: src/Form/config/SettingsForm.php:311
+msgid "Info"
+msgstr "Información"
+
+#: src/Form/config/SettingsForm.php:351
+msgid "License"
+msgstr "Licencia"
+
+#: src/Form/config/SettingsForm.php:391
+msgid "Help"
+msgstr "Ayuda"
+
+#: src/Plugin/Block/SpeechBlock.php:104
+msgid "Select container class to read."
+msgstr "Selecciona la clase del contenedor para leer."
+
+#: src/Plugin/Block/SpeechBlock.php:12
+msgid "onovas"
+msgstr ""
+
+#: templates/onovas-web-speech-block.html.twig:3 templates/onovas-web-speech.html.twig:3
+msgid "Stop"
+msgstr ""
