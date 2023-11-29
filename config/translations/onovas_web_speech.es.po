@@ -134,7 +134,7 @@ msgstr "Tipos de Contenido"
 
 #: src/Form/config/SettingsForm.php:276
 msgid "<p><h2>Content Type Settings</h2></p>"
-msgstr "<p><h2>Confiración de tipos de contenido</h2></p>"
+msgstr "<p><h2>Configuración de tipos de contenido</h2></p>"
 
 #: src/Form/config/SettingsForm.php:280
 msgid "Content types to apply web speech field to."
