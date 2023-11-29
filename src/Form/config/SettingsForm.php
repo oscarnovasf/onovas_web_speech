@@ -257,6 +257,15 @@ class SettingsForm extends ConfigFormBase {
     return $form['general_settings'];
   }
 
+  /**
+   * Genera el formulario para la configuración de tipos de contenido.
+   *
+   * @param \Drupal\Core\Config\Config $config
+   *   Configuración del módulo.
+   *
+   * @return array
+   *   Array con el contenido a renderizar, si procede.
+   */
   private function getEntitiesSettings(Config $config): array {
     /** @var \Drupal\node\Entity\NodeType[] */
     $contentTypes = $this->typeManager
